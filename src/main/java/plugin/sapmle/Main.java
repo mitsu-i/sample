@@ -70,7 +70,6 @@ public final class Main extends JavaPlugin implements Listener {
       player.sendMessage(Files.readString(path));
     }
     count++;
-    System.out.println(count);
   }
 
   @EventHandler
