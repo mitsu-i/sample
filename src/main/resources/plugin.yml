@@ -1,0 +1,4 @@
+name: Main
+version: '${version}'
+main: plugin.sapmle.Main
+api-version: 1.20
