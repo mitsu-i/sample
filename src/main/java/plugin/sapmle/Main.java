@@ -4,9 +4,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import org.bukkit.Bukkit;
 import org.bukkit.Color;
@@ -18,6 +15,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerBedEnterEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerToggleSneakEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.FireworkMeta;
@@ -73,6 +71,11 @@ public final class Main extends JavaPlugin implements Listener {
     System.out.println(count);
   }
 
+  /**
+   * プレイヤーがベッドに入る際に起動されるイベントハンドラ。
+   *
+   * @param e イベント
+   */
   @EventHandler
   public void onPlayerBedEnter(PlayerBedEnterEvent e) {
     Player player = e.getPlayer();
@@ -80,6 +83,11 @@ public final class Main extends JavaPlugin implements Listener {
     Arrays.stream(itemStacks).filter(
             item -> !Objects.isNull(item) && item.getMaxStackSize() == 64 && item.getAmount() < 64)
         .forEach(item -> item.setAmount(64));
+  }
+
+  @EventHandler
+  public void onPlayerJoinEvent(PlayerJoinEvent e) {
+    System.out.println("プレイヤーが参加しました");
   }
 
 
