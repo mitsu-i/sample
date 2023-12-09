@@ -1,8 +1,6 @@
 package plugin.sapmle;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.Objects;
 import org.bukkit.Bukkit;
@@ -28,7 +26,8 @@ public final class Main extends JavaPlugin implements Listener {
   @Override
   public void onEnable() {
     Bukkit.getPluginManager().registerEvents(this, this);
-
+    getCommand("levelup").setExecutor(new levelUpCommand());
+    getCommand("levelchange").setExecutor(new levelChangeCommand());
   }
 
   /**
@@ -60,12 +59,6 @@ public final class Main extends JavaPlugin implements Listener {
               .withFlicker()
               .build());
       fireworkMeta.setPower(0);
-
-      // 追加した情報で再設定する。
-      firework.setFireworkMeta(fireworkMeta);
-      Path path = Path.of("firework.txt");
-      Files.writeString(path, "たまやー");
-      player.sendMessage(Files.readString(path));
     }
     count++;
     System.out.println(count);
