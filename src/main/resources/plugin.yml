@@ -3,5 +3,6 @@ version: '${version}'
 main: plugin.sapmle.Main
 api-version: 1.20
 commands:
-  levelup:
-  levelchange:
+  setLevel:
+  changeLevel:
+  allSetLevel:
