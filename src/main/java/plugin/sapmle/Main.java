@@ -23,6 +23,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Main extends JavaPlugin implements Listener {
 
+  //コメントの追加
   private int count;
 
   @Override
